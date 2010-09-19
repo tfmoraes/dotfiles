@@ -73,9 +73,11 @@ noremap k gk
 
 " Plugins
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks"])
 
+"-------------------
 " Tag List
+" ------------------
 let Tlist_Auto_Open=0
 let Tlist_Inc_Winwidth=1
 let Tlist_Exit_OnlyWindow=1
@@ -83,8 +85,24 @@ let Tlist_Enable_Fold_Column=0
 let Tlist_File_Fold_Auto_Close=1
 nnoremap <silent><leader>l :TlistToggle<CR>
 
+"--------------------
 " NERDTree
+" ------------------
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+" --------------------
+" ShowMarks
+" --------------------
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let g:showmarks_enable = 1
+" For marks a-z
+highlight ShowMarksHLl gui=bold guibg=LightBlue guifg=Blue
+" For marks A-Z
+highlight ShowMarksHLu gui=bold guibg=LightRed guifg=DarkRed
+" For all other marks
+highlight ShowMarksHLo gui=bold guibg=LightYellow guifg=DarkYellow
+" For multiple marks on the same line.
+highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
 
 
 " --------------------
@@ -136,3 +154,22 @@ set statusline+=\ %P "percent through file
 "set statusline+=0x%-8B " character value
 "set statusline+=%l,%c%V " line, character
 "set statusline+=%P " file position
+
+"return '[&et]' if &et is set wrong
+"return '[mixed-indenting]' if spaces and tabs are used to indent
+"return an empty string if everything is fine
+function! StatuslineTabWarning()
+    if !exists("b:statusline_tab_warning")
+        let tabs = search('^\t', 'nw') != 0
+        let spaces = search('^ ', 'nw') != 0
+
+        if tabs && spaces
+            let b:statusline_tab_warning = '[mixed-indenting]'
+        elseif (spaces && !&et) || (tabs && &et)
+            let b:statusline_tab_warning = '[&et]'
+        else
+            let b:statusline_tab_warning = ''
+        endif
+    endif
+    return b:statusline_tab_warning
+endfunction
