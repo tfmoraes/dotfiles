@@ -28,3 +28,6 @@
 [submodule "vim/.vim-addons/vim-addon-manager"]
 	path = vim/.vim-addons/vim-addon-manager
 	url = http://github.com/MarcWeber/vim-addon-manager.git
+[submodule "vim/.vim-addons/yankring"]
+	path = vim/.vim-addons/yankring
+	url = http://github.com/chrismetcalf/vim-yankring.git
