@@ -7,3 +7,6 @@
 [submodule "vim/.vim-addons/nerdtree"]
 	path = vim/.vim-addons/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim-addons/repeat"]
+	path = vim/.vim-addons/repeat
+	url = http://github.com/tpope/vim-repeat.git
