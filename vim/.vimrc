@@ -66,5 +66,5 @@ let python_slow_sync = 1
 
 
 " Plugins
-set runtimepath+=~/vim-plugins/vim-addon-manager
-call scriptmanager#Activate(["snipmate"])
+set runtimepath+=~/.vim-addons/vim-addon-manager
+call scriptmanager#Activate(["snipmate", "nerdtree"])
