@@ -55,6 +55,8 @@ set smartcase
 set incsearch
 set hlsearch
 
+set listchars=tab:▸\ ,eol:¬
+
 set wildmenu
 set wildmode=longest,list
 "Sempre mostra o menu, melhora o autocompletion
@@ -79,18 +81,31 @@ set scrolloff=3
 set background=dark
 set sessionoptions+=buffers
 
+
 " Opções do ~/.vim/syntax/python.vim
 let python_hightlight_all = 1
 let python_slow_sync = 1
 
+" ------------------------------------------------------
 " Mappings
+" -----------------------------------------------------
+
 " movement work more logically with wrapped lines
 let mapleader=","
+
 noremap j gj
 noremap k gk
 
+map <leader>l :set list!<cr>
 
-" Plugins
+noremap gb :bprev<CR>
+noremap gB :bnext<CR>
+noremap <leader>bd :bdelete<CR>
+
+
+"---------------------------------------------------------
+"Plugins
+"---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
 call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler"])
 
