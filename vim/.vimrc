@@ -63,3 +63,8 @@ set sessionoptions+=buffers
 " Opções do ~/.vim/syntax/python.vim
 let python_hightlight_all = 1
 let python_slow_sync = 1
+
+
+" Plugins
+set runtimepath+=~/vim-plugins/vim-addon-manager
+call scriptmanager#Activate(["snipmate"])
