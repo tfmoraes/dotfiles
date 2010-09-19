@@ -1,4 +1,5 @@
 "--------------------------------------------------------
+"
 " Dependencies
 "-------------------------------------------------------
 " Ack
@@ -7,8 +8,9 @@
 "-----------------------------------------------------
 " Shortcuts
 " ----------------------------------------------------
-"  ,l - taglist
+"  ,t - taglist
 "  ,d - nerdtree
+"  ,b - lusty-juggler (bufferlist)
 
 
 " ----------------------------------------------------
@@ -90,7 +92,7 @@ noremap k gk
 
 " Plugins
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler"])
 
 "-------------------
 " Tag List
@@ -106,12 +108,18 @@ if has("mac")
 	let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 endif
 
-nnoremap <silent><leader>l :TlistToggle<CR>
+nnoremap <silent><leader>t :TlistToggle<CR>
 
 "--------------------
 " NERDTree
 " ------------------
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+"--------------------
+" Lust-juggler
+" -------------------
+nmap <silent> <Leader>b :LustyJuggler<CR>
+
 
 " --------------------
 " ShowMarks
