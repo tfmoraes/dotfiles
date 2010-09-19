@@ -13,3 +13,6 @@
 [submodule "vim/.vim-addons/showmarks"]
 	path = vim/.vim-addons/showmarks
 	url = http://github.com/vim-scripts/ShowMarks.git
+[submodule "vim/.vim-addons/snipmate"]
+	path = vim/.vim-addons/snipmate
+	url = http://github.com/msanders/snipmate.vim.git
