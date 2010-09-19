@@ -1,3 +1,6 @@
 [submodule "vim/.vim-addons/ack"]
 	path = vim/.vim-addons/ack
 	url = http://github.com/mileszs/ack.vim.git
+[submodule "vim/.vim-addons/nerdcommenter"]
+	path = vim/.vim-addons/nerdcommenter
+	url = http://github.com/scrooloose/nerdcommenter.git
