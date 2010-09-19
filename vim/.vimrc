@@ -3,7 +3,7 @@
 " Dependencies
 "-------------------------------------------------------
 " Ack
-" pylint
+" pyflakes
 
 "-----------------------------------------------------
 " Shortcuts
@@ -12,7 +12,8 @@
 "  ,bd - Close a buffer
 "  ,d - nerdtree
 "  ,l - Shows the no-printable chars, like tabs and EOL
-"  ,n - no highlight
+"  ,nh - no highlight
+"  ,nn - toggle number
 "  ,t - taglist
 "  gB - next buffer
 "  gb - previous buffer
@@ -86,12 +87,31 @@ set lbr
 set scrolloff=3
 
 set background=dark
+set number
 set sessionoptions+=buffers
 
 
 " Opções do ~/.vim/syntax/python.vim
 let python_hightlight_all = 1
 let python_slow_sync = 1
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+\ | wincmd p | diffthis
+endif
+
+"--------------------------------------------------------
+" Abreviations
+" -------------------------------------------------------
+cab W w
+cab Wq wq
+cab wQ wq
+cab WQ wq
+cab Q q
+cab q1 q!
 
 " ------------------------------------------------------
 " Mappings
@@ -109,14 +129,15 @@ noremap gb :bprev<CR>
 noremap gB :bnext<CR>
 noremap <leader>bd :bdelete<CR>
 
-nmap <leader>n :noh<CR>
+nmap <leader>nh :noh<CR>
+nmap <leader>nn :set number!<CR>
 
 
 "---------------------------------------------------------
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat", "vim-indent-object"])
 
 "-------------------
 " Tag List
