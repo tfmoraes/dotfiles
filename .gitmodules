@@ -31,3 +31,6 @@
 [submodule "vim/.vim-addons/yankring"]
 	path = vim/.vim-addons/yankring
 	url = http://github.com/chrismetcalf/vim-yankring.git
+[submodule "vim/.vim-addons/vim-indent-object"]
+	path = vim/.vim-addons/vim-indent-object
+	url = http://github.com/michaeljsmith/vim-indent-object.git
