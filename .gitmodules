@@ -25,3 +25,6 @@
 [submodule "vim/.vim-addons/syntastic"]
 	path = vim/.vim-addons/syntastic
 	url = http://github.com/scrooloose/syntastic.git
+[submodule "vim/.vim-addons/vim-addon-manager"]
+	path = vim/.vim-addons/vim-addon-manager
+	url = http://github.com/MarcWeber/vim-addon-manager.git
