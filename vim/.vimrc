@@ -1,14 +1,17 @@
-"Não compatível com o VI
+" No vi-compatible
 set nocompatible
-set autoindent
-set smartindent
+
+" It hides buffers instead of closing them. This means that you can have
+" unwritten changes to a file and open a new file using :e, without being
+" forced to write or undo your changes first.
+set hidden
 set backspace=indent,eol,start
 set autoread
-
 set title
 
-set hidden
-set history=1000
+" Don't beep
+set visualbell
+set noerrorbells
 
 syntax on
 filetype on
@@ -16,10 +19,19 @@ filetype plugin on
 filetype plugin indent on
 filetype indent on
 
+"History
+set history=1000
+set undolevels=1000
+
+" Indent
+set autoindent
+set smartindent
+
 " Case insensitive apenas se a string de pesquisa não tiver caracteres
 " maiusculos
 set ignorecase
 set smartcase
+
 "Busca Incremental
 set incsearch
 set hlsearch
@@ -30,8 +42,6 @@ set wildmode=longest,list
 set completeopt=menuone,longest
 
 set showmatch
-"Inclui o < e > no matching
-set matchpairs+=<:>
 
 set laststatus=2
 "Mostra no rodape da tela a posição horizontal e vertical do cursor.
@@ -42,10 +52,11 @@ set ttyfast
 set fdc=2
 set nofoldenable
 
-set scrolloff=3
 "Set auto quando a arquivo é modificado por outro aplicativo
 "Ativa quebra na palavra
 set lbr
+set scrolloff=3
+
 set background=dark
 
 set sessionoptions+=buffers
@@ -109,7 +120,8 @@ nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 
 "set runtimepath+=/usr/share/vim-scripts
 
-" PLUGINS
+" Using vim-addons-manager
+set runtimepath+=~/vim-plugins/vim-addon-manager
 
 " Tag List
 let Tlist_Auto_Open=0
