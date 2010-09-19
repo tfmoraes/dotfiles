@@ -16,3 +16,6 @@
 [submodule "vim/.vim-addons/snipmate"]
 	path = vim/.vim-addons/snipmate
 	url = http://github.com/msanders/snipmate.vim.git
+[submodule "vim/.vim-addons/supertab"]
+	path = vim/.vim-addons/supertab
+	url = http://github.com/ervandew/supertab.git
