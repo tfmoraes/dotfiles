@@ -8,9 +8,16 @@
 "-----------------------------------------------------
 " Shortcuts
 " ----------------------------------------------------
-"  ,t - taglist
-"  ,d - nerdtree
 "  ,b - lusty-juggler (bufferlist)
+"  ,bd - Close a buffer
+"  ,d - nerdtree
+"  ,l - Shows the no-printable chars, like tabs and EOL
+"  ,n - no highlight
+"  ,t - taglist
+"  gB - next buffer
+"  gb - previous buffer
+"  j - gj
+"  k - gk
 
 
 " ----------------------------------------------------
@@ -101,6 +108,8 @@ map <leader>l :set list!<cr>
 noremap gb :bprev<CR>
 noremap gB :bnext<CR>
 noremap <leader>bd :bdelete<CR>
+
+nmap <leader>n :noh<CR>
 
 
 "---------------------------------------------------------
