@@ -90,7 +90,7 @@ noremap k gk
 
 " Plugins
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab"])
 
 "-------------------
 " Tag List
@@ -127,6 +127,10 @@ highlight ShowMarksHLo gui=bold guibg=LightYellow guifg=DarkYellow
 " For multiple marks on the same line.
 highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
 
+"--------------------
+" Supertabs
+" -------------------
+let g:SuperTabDefaultCompletionType = 'context'
 
 " --------------------
 "statusline setup
