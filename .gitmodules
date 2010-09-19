@@ -10,3 +10,6 @@
 [submodule "vim/.vim-addons/repeat"]
 	path = vim/.vim-addons/repeat
 	url = http://github.com/tpope/vim-repeat.git
+[submodule "vim/.vim-addons/showmarks"]
+	path = vim/.vim-addons/showmarks
+	url = http://github.com/vim-scripts/ShowMarks.git
