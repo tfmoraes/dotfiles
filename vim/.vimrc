@@ -90,7 +90,7 @@ noremap k gk
 
 " Plugins
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter"])
 
 "-------------------
 " Tag List
@@ -100,6 +100,12 @@ let Tlist_Inc_Winwidth=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Enable_Fold_Column=0
 let Tlist_File_Fold_Auto_Close=1
+
+" Mac have bsd ctags, here we use the exuberant ctags
+if has("mac")
+	let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+endif
+
 nnoremap <silent><leader>l :TlistToggle<CR>
 
 "--------------------
@@ -147,8 +153,6 @@ set statusline+=%m "modified flag
 set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
-
-set statusline+=%{Tlist_Get_Tagname_By_Line()}
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
