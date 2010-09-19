@@ -19,3 +19,6 @@
 [submodule "vim/.vim-addons/supertab"]
 	path = vim/.vim-addons/supertab
 	url = http://github.com/ervandew/supertab.git
+[submodule "vim/.vim-addons/surround"]
+	path = vim/.vim-addons/surround
+	url = http://github.com/tpope/vim-surround.git
