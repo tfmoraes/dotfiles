@@ -116,7 +116,7 @@ nmap <leader>n :noh<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat"])
 
 "-------------------
 " Tag List
