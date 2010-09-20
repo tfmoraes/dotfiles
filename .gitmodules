@@ -34,3 +34,6 @@
 [submodule "vim/.vim-addons/vim-indent-object"]
 	path = vim/.vim-addons/vim-indent-object
 	url = http://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/.vim-addons/sparkup"]
+	path = vim/.vim-addons/sparkup
+	url = http://github.com/rstacruz/sparkup.git
