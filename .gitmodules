@@ -37,3 +37,6 @@
 [submodule "vim/.vim-addons/sparkup"]
 	path = vim/.vim-addons/sparkup
 	url = http://github.com/rstacruz/sparkup.git
+[submodule "vim/.vim-addons/speeddating"]
+	path = vim/.vim-addons/speeddating
+	url = http://github.com/tpope/vim-speeddating.git
