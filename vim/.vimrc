@@ -14,7 +14,8 @@
 "  ,l - Shows the no-printable chars, like tabs and EOL
 "  ,nh - no highlight
 "  ,nn - toggle number
-"  ,t - taglist
+"  ,t - command-t
+"  ,k - taglist
 "  gB - next buffer
 "  gb - previous buffer
 "  j - gj
@@ -153,7 +154,7 @@ if has("mac")
 	let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 endif
 
-nnoremap <silent><leader>t :TlistToggle<CR>
+nnoremap <silent><leader>k :TlistToggle<CR>
 
 "--------------------
 " NERDTree
@@ -192,6 +193,11 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1 
+
+"----------------
+" Command-t
+" --------------
+map <leader>t :CommandT <CR>
 
 " --------------------
 "statusline setup
