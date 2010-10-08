@@ -43,3 +43,6 @@
 [submodule "vim/.vim-addons/histwin"]
 	path = vim/.vim-addons/histwin
 	url = http://github.com/chrisbra/histwin.vim.git
+[submodule "vim/.vim-addons/command-t"]
+	path = vim/.vim-addons/command-t
+	url = http://github.com/wincent/Command-T.git
