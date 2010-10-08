@@ -40,3 +40,6 @@
 [submodule "vim/.vim-addons/speeddating"]
 	path = vim/.vim-addons/speeddating
 	url = http://github.com/tpope/vim-speeddating.git
+[submodule "vim/.vim-addons/histwin"]
+	path = vim/.vim-addons/histwin
+	url = http://github.com/chrisbra/histwin.vim.git

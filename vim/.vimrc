@@ -137,7 +137,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat", "vim-indent-object", "sparkup", "speeddating"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp"])
 
 "-------------------
 " Tag List
@@ -184,6 +184,14 @@ highlight ShowMarksHLm gui=bold guibg=LightGreen guifg=DarkGreen
 " Supertabs
 " -------------------
 let g:SuperTabDefaultCompletionType = 'context'
+
+"-----------------
+" minibufexplpp
+" ---------------
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
 
 " --------------------
 "statusline setup
