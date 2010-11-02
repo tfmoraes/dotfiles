@@ -46,3 +46,6 @@
 [submodule "vim/.vim-addons/command-t"]
 	path = vim/.vim-addons/command-t
 	url = http://github.com/wincent/Command-T.git
+[submodule "vim/.vim-addons/tabular"]
+	path = vim/.vim-addons/tabular
+	url = http://github.com/godlygeek/tabular.git
