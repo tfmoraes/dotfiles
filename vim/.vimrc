@@ -138,7 +138,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "lustyjuggler", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "command-t", "py2stdlib"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "command-t", "py2stdlib", "bufexplorer", "fugitive"])
 
 "-------------------
 " Tag List
@@ -160,12 +160,6 @@ nnoremap <silent><leader>k :TlistToggle<CR>
 " NERDTree
 " ------------------
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-"--------------------
-" Lust-juggler
-" -------------------
-nmap <silent> <Leader>b :LustyJuggler<CR>
-
 
 " --------------------
 " ShowMarks
@@ -233,7 +227,9 @@ set statusline+=%*
 " set statusline+=%#error#
 " set statusline+=%{&paste?'[paste]':''}
 " set statusline+=%*
- " 
+
+set statusline+=%{fugitive#statusline()}
+
 set statusline+=%= "left/right separator
 set statusline+=%c, "cursor column
 set statusline+=%l/%L "cursor line/total lines
@@ -265,3 +261,5 @@ function! StatuslineTabWarning()
     endif
     return b:statusline_tab_warning
 endfunction
+
+nnoremap <leader>b :BufExplorer <CR>
