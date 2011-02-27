@@ -55,3 +55,9 @@
 [submodule "vim/.vim-addons/fugitive"]
 	path = vim/.vim-addons/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.vim-addons/indent-guides"]
+	path = vim/.vim-addons/indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/.vim-addons/gundo"]
+	path = vim/.vim-addons/gundo
+	url = http://github.com/sjl/gundo.vim.git
