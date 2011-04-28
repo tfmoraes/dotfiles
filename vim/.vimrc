@@ -20,7 +20,7 @@
 "  gb - previous buffer
 "  j - gj
 "  k - gk
-"  ,u - gundo
+"  ,u - gundotoggle
 
 
 " ----------------------------------------------------
@@ -193,6 +193,11 @@ let g:miniBufExplModSelTarget = 1
 " Command-t
 " --------------
 map <leader>t :CommandT <CR>
+
+"----------------
+" Gundo
+" --------------
+map <leader>u :GundoToggle <CR>
 
 " --------------------
 "statusline setup
