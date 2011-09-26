@@ -58,9 +58,9 @@
 [submodule "vim/.vim-addons/gundo"]
 	path = vim/.vim-addons/gundo
 	url = http://github.com/sjl/gundo.vim.git
-[submodule "vim/.vim-addons/showmarks"]
-	path = vim/.vim-addons/showmarks
-	url = https://github.com/vim-scripts/ShowMarks.git
 [submodule "vim/.vim-addons/tagbar"]
 	path = vim/.vim-addons/tagbar
 	url = https://github.com/vim-scripts/Tagbar.git
+[submodule "vim/.vim-addons/showmarks"]
+	path = vim/.vim-addons/showmarks
+	url = https://github.com/vim-scripts/ShowMarks.git
