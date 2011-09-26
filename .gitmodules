@@ -10,9 +10,6 @@
 [submodule "vim/.vim-addons/repeat"]
 	path = vim/.vim-addons/repeat
 	url = http://github.com/tpope/vim-repeat.git
-[submodule "vim/.vim-addons/showmarks"]
-	path = vim/.vim-addons/showmarks
-	url = http://github.com/vim-scripts/ShowMarks.git
 [submodule "vim/.vim-addons/snipmate"]
 	path = vim/.vim-addons/snipmate
 	url = http://github.com/msanders/snipmate.vim.git
@@ -45,7 +42,7 @@
 	url = http://github.com/chrisbra/histwin.vim.git
 [submodule "vim/.vim-addons/command-t"]
 	path = vim/.vim-addons/command-t
-	url = http://github.com/wincent/Command-T.git
+	url = https://github.com/wincent/Command-T.git
 [submodule "vim/.vim-addons/tabular"]
 	path = vim/.vim-addons/tabular
 	url = http://github.com/godlygeek/tabular.git
@@ -57,7 +54,10 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/.vim-addons/indent-guides"]
 	path = vim/.vim-addons/indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "vim/.vim-addons/gundo"]
 	path = vim/.vim-addons/gundo
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "vim/.vim-addons/showmarks"]
+	path = vim/.vim-addons/showmarks
+	url = https://github.com/vim-scripts/ShowMarks.git
