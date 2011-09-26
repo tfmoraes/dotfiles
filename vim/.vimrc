@@ -15,7 +15,7 @@
 "  ,nh - no highlight
 "  ,nn - toggle number
 "  ,t - command-t
-"  ,k - taglist
+"  ,k - tagbar
 "  gB - next buffer
 "  gb - previous buffer
 "  j - gj
@@ -139,23 +139,37 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "taglist", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "command-t", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "command-t", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
 
 "-------------------
 " Tag List
 " ------------------
-let Tlist_Auto_Open=0
-let Tlist_Inc_Winwidth=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Enable_Fold_Column=0
-let Tlist_File_Fold_Auto_Close=1
+"let Tlist_Auto_Open=0
+"let Tlist_Inc_Winwidth=1
+"let Tlist_Exit_OnlyWindow=1
+"let Tlist_Enable_Fold_Column=0
+"let Tlist_File_Fold_Auto_Close=1
 
+"" Mac have bsd ctags, here we use the exuberant ctags
+"if has("mac")
+	"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+"endif
+
+"nnoremap <silent><leader>k :TlistToggle<CR>
+
+" -----------------------
+"  Tagbar
+"  ----------------------
 " Mac have bsd ctags, here we use the exuberant ctags
 if has("mac")
-	let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+	let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 endif
 
-nnoremap <silent><leader>k :TlistToggle<CR>
+" Tagbar will be opened at left.
+let g:tagbar_left = 1
+
+
+nnoremap <silent><leader>k :TagbarToggle<CR>
 
 "--------------------
 " NERDTree
