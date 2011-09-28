@@ -139,7 +139,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "command-t", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
+call scriptmanager#Activate(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "ctrp", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
 
 "-------------------
 " Tag List
@@ -206,7 +206,14 @@ let g:miniBufExplModSelTarget = 1
 "----------------
 " Command-t
 " --------------
-map <leader>t :CommandT <CR>
+"map <leader>t :CommandT <CR>
+"
+
+"----------------
+" Ctrl-P
+" ---------------
+let g:ctrlp_map = '<leader>t'
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 
 "----------------
 " Gundo
