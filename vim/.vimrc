@@ -139,7 +139,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call scriptmanager#Activate(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "ctrp", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "ctrp", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo"])
 
 "-------------------
 " Tag List

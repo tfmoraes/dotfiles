@@ -64,3 +64,6 @@
 [submodule "vim/.vim-addons/showmarks"]
 	path = vim/.vim-addons/showmarks
 	url = https://github.com/vim-scripts/ShowMarks.git
+[submodule "vim/.vim-addons/ctrp"]
+	path = vim/.vim-addons/ctrp
+	url = https://github.com/kien/ctrlp.vim.git
