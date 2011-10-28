@@ -1,4 +1,4 @@
 colorscheme solarized
-set guifont=monaco\ 12
+set guifont=UbuntuMono\ 14
 highlight Pmenu guibg=black
 set cursorline
