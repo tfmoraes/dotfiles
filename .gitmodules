@@ -73,3 +73,6 @@
 [submodule "vim/.vim-addons/solarized"]
 	path = vim/.vim-addons/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/.vim-addons/buftabs"]
+	path = vim/.vim-addons/buftabs
+	url = https://github.com/vim-scripts/buftabs
