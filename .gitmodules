@@ -76,3 +76,6 @@
 [submodule "vim/.vim-addons/buftabs"]
 	path = vim/.vim-addons/buftabs
 	url = https://github.com/vim-scripts/buftabs
+[submodule "vim/.vim-addons/omnicppcomplete"]
+	path = vim/.vim-addons/omnicppcomplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
