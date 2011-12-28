@@ -76,3 +76,9 @@
 [submodule "vim/.vim-addons/omnicppcomplete"]
 	path = vim/.vim-addons/omnicppcomplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
+[submodule "vim/.vim-addons/tabman"]
+	path = vim/.vim-addons/tabman
+	url = https://github.com/kien/tabman.vim.git
+[submodule "vim/.vim-addons/buffergator"]
+	path = vim/.vim-addons/buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
