@@ -139,7 +139,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "histwin", "minibufexplpp", "ctrp", "py2stdlib", "bufexplorer", "fugitive", "indent-guides", "gundo", "solarized"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "buftabs"])
 
 "-------------------
 " Tag List
@@ -213,7 +213,9 @@ let g:miniBufExplModSelTarget = 1
 " Ctrl-P
 " ---------------
 let g:ctrlp_map = '<leader>t'
+nnoremap <leader>b :CtrlPBuffer <CR>
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+let g:ctrlp_working_path_mode = 0
 
 "----------------
 " Gundo
@@ -223,7 +225,7 @@ map <leader>u :GundoToggle <CR>
 " --------------------
 "statusline setup
 " --------------------
-set statusline=%f "tail of the filename
+"set statusline=%f "tail of the filename
  " 
 " display a warning if fileformat isnt unix
 " set statusline+=%#warningmsg#
@@ -235,7 +237,7 @@ set statusline=%f "tail of the filename
 " set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 " set statusline+=%*
  " 
-set statusline+=%h "help file flag
+set statusline=%h "help file flag
 set statusline+=%y "filetype
 set statusline+=%r "read only flag
 set statusline+=%m "modified flag
@@ -289,4 +291,7 @@ function! StatuslineTabWarning()
     return b:statusline_tab_warning
 endfunction
 
-nnoremap <leader>b :BufExplorer <CR>
+let g:buftabs_in_statusline=1
+let g:buftabs_only_basename=1
+"let g:buftabs_active_highlight_group="Visual"
+set statusline+=%{buftabs#statusline()}
