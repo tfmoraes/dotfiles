@@ -85,3 +85,9 @@
 [submodule "vim/.vim-addons/buffergator"]
 	path = vim/.vim-addons/buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule "vim/.vim-addons/golang"]
+	path = vim/.vim-addons/golang
+	url = https://github.com/jnwhiteh/vim-golang
+[submodule "/home/thiago/.vim-addons/minibufexplorer"]
+	path = /home/thiago/.vim-addons/minibufexplorer
+	url = https://github.com/fholgado/minibufexpl.vim
