@@ -79,3 +79,6 @@
 [submodule "vim/.vim-addons/omnicppcomplete"]
 	path = vim/.vim-addons/omnicppcomplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
+[submodule "vim/.vim-addons/buffet"]
+	path = vim/.vim-addons/buffet
+	url = https://github.com/sandeepcr529/Buffet.vim.git
