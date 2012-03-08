@@ -139,7 +139,7 @@ nmap <leader>nn :set number!<CR>
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "buftabs"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "buftabs", "buffet"])
 
 "-------------------
 " Tag List
@@ -216,6 +216,8 @@ let g:ctrlp_map = '<leader>t'
 nnoremap <leader>b :CtrlPBuffer <CR>
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore='.pyc$'
+let g:ctrlp_match_window_bottom = 0
 
 "----------------
 " Gundo
