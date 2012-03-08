@@ -134,12 +134,14 @@ noremap <leader>bd :bdelete<CR>
 nmap <leader>nh :noh<CR>
 nmap <leader>nn :set number!<CR>
 
+vnoremap < <gv
+vnoremap > >gv
 
 "---------------------------------------------------------
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "buftabs"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "minibufexplorer", "golang"])
 
 "-------------------
 " Tag List
@@ -291,7 +293,11 @@ function! StatuslineTabWarning()
     return b:statusline_tab_warning
 endfunction
 
-let g:buftabs_in_statusline=1
-let g:buftabs_only_basename=1
-"let g:buftabs_active_highlight_group="Visual"
-set statusline+=%{buftabs#statusline()}
+"let g:buftabs_in_statusline=1
+"let g:buftabs_only_basename=1
+""let g:buftabs_active_highlight_group="Visual"
+"set statusline+=%{buftabs#statusline()}
+
+
+"Golang
+set rtp+=$GOROOT/misc/vim
