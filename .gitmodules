@@ -94,3 +94,6 @@
 [submodule "/home/thiago/.vim-addons/minibufexplorer"]
 	path = vim/.vim-addons/minibufexplorer
 	url = https://github.com/fholgado/minibufexpl.vim
+[submodule "vim/.vim-addons/unimpaired"]
+	path = vim/.vim-addons/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
