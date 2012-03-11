@@ -92,5 +92,5 @@
 	path = vim/.vim-addons/golang
 	url = https://github.com/jnwhiteh/vim-golang
 [submodule "/home/thiago/.vim-addons/minibufexplorer"]
-	path = /home/thiago/.vim-addons/minibufexplorer
+	path = vim/.vim-addons/minibufexplorer
 	url = https://github.com/fholgado/minibufexpl.vim
