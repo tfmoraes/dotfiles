@@ -103,3 +103,6 @@
 [submodule "vim/.vim-addons/itchy"]
 	path = vim/.vim-addons/itchy
 	url = https://github.com/programble/itchy.vim.git
+[submodule "vim/.vim-addons/unimpaired"]
+	path = vim/.vim-addons/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

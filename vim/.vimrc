@@ -16,11 +16,13 @@
 "  ,nn - toggle number
 "  ,t - command-t
 "  ,k - tagbar
-"  gB - next buffer
-"  gb - previous buffer
+"  <S-Right> - next buffer
+"  <S-Left> - previous buffer
 "  j - gj
 "  k - gk
 "  ,u - gundotoggle
+"  <S-Up> - Bubble single/selected line(s) up
+"  <S-Down> - Bubble single/selected line(s) down
 
 
 " ----------------------------------------------------
@@ -137,11 +139,17 @@ nmap <leader>nn :set number!<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" Bubble single lines
+nmap <S-Up> [e
+nmap <S-Down> ]e
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
 "---------------------------------------------------------
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "golang", "smartinput", "powerline", "itchy", "buffet"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "golang", "smartinput", "powerline", "itchy", "buffet", "unimpaired"])
 
 "-------------------
 " Tag List
@@ -300,6 +308,7 @@ endfunction
 ""let g:buftabs_active_highlight_group="Visual"
 "set statusline+=%{buftabs#statusline()}
 
+"====================================
 
 "Golang
 set rtp+=$GOROOT/misc/vim
@@ -313,3 +322,8 @@ map <leader><tab> :Scratch <CR>
 "
 "Buffet
 map <leader>bl :Bufferlist <CR>
+
+" Unimpaired
+" Bubble multiple lines
+vmap <S-Up> [egv
+vmap <S-Down> ]egv
