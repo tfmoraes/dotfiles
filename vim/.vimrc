@@ -127,8 +127,8 @@ noremap k gk
 
 map <leader>l :set list!<cr>
 
-noremap gb :bprev<CR>
-noremap gB :bnext<CR>
+noremap <S-right> :bprev<CR>
+noremap <S-left> :bnext<CR>
 noremap <leader>bd :bdelete<CR>
 
 nmap <leader>nh :noh<CR>
@@ -141,7 +141,7 @@ vnoremap > >gv
 "Plugins
 "---------------------------------------------------------
 set runtimepath+=~/.vim-addons/vim-addon-manager
-call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "minibufexplorer", "golang"])
+call vam#ActivateAddons(["snipmate", "nerdtree", "tagbar", "yankring", "ack", "surround", "syntastic", "showmarks", "nerdcommenter", "supertab", "repeat", "vim-indent-object", "sparkup", "speeddating", "ctrp", "py2stdlib", "fugitive", "indent-guides", "gundo", "solarized", "golang", "smartinput", "powerline", "itchy", "buffet"])
 
 "-------------------
 " Tag List
@@ -303,3 +303,13 @@ endfunction
 
 "Golang
 set rtp+=$GOROOT/misc/vim
+
+" Itchy
+map <leader><tab> :Scratch <CR>
+
+" Buffergator
+"let g:buffergator_suppress_keymaps = 1
+"map <leader>bt :BuffergatorToggle <CR>
+"
+"Buffet
+map <leader>bl :Bufferlist <CR>
