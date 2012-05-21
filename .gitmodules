@@ -46,9 +46,6 @@
 [submodule "vim/.vim-addons/tabular"]
 	path = vim/.vim-addons/tabular
 	url = http://github.com/godlygeek/tabular.git
-[submodule "vim/.vim-addons/bufexplorer"]
-	path = vim/.vim-addons/bufexplorer
-	url = https://github.com/edsono/vim-bufexplorer.git
 [submodule "vim/.vim-addons/fugitive"]
 	path = vim/.vim-addons/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
