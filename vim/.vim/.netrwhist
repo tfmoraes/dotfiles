@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/thiago/Sources/dotfiles/vim/.vim-addons/vim-repeat'
-let g:netrw_dirhist_2='/home/thiago/Sources/dotfiles'
-let g:netrw_dirhist_3='/home/thiago/CTI/invesalius-utils/packages/debian/sigar/patches'
