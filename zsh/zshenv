@@ -1,0 +1,3 @@
+source ~/.zlib/exports.zsh
+source ~/.zlib/path.zsh
+# export GTK_USE_PORTAL=1

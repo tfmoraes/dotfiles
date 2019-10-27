@@ -1,0 +1,74 @@
+source ~/antigen.zsh
+source ~/.zlib/exports.zsh
+source ~/.zlib/path.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle virtualenvwrapper
+
+antigen bundle zsh-users/zsh-completions src
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# History search
+antigen bundle zsh-users/zsh-history-substring-search
+
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Z
+antigen bundle rupa/z
+
+# antigen bundle marzocchi/zsh-notify
+
+# Autoenv
+antigen bundle Tarrasch/zsh-autoenv
+
+antigen bundle mafredri/zsh-async
+
+# PURE_PROMPT_SYMBOL='▶'
+# antigen bundle mafredri/zsh-async
+# antigen bundle sindresorhus/pure
+antigen bundle chrissicool/zsh-256color
+antigen theme denysdovhan/spaceship-prompt
+
+# Load the theme.
+# antigen theme my_avit
+
+# OS Detection
+UNAME=`uname`
+
+if [[ $UNAME == 'Darwin' ]]; then
+    antigen bundle brew
+    # antigen bundle brew-cask
+fi
+
+# Tell antigen that you're done.
+antigen apply
+
+source ~/.zlib/options.zsh
+source ~/.zlib/keybindings.zsh
+source ~/.zlib/functions.zsh
+source ~/.zlib/aliases.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]
+then
+    source /etc/profile.d/vte-2.91.sh
+fi
+
+if [ -d "$HOME/.linuxbrew/" ]
+then
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
