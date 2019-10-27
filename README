@@ -1,0 +1,15 @@
+Clone this repository:
+
+$ git@github.com:tfmoraes/dotfiles.git
+
+Export $DOT_DIR to the repo folder
+
+$ export DOT_DIR="~/Dropbox/dotfiles"
+
+Enter inside $DOT_DIR and:
+
+$ dot link
+
+Install nvim plugins:
+
+$ nvim :PlugInstall
