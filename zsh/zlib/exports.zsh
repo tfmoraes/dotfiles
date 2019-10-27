@@ -18,3 +18,5 @@ export EDITOR=nvim
 export WORKON_HOME="~/virtualenvs/"
 export GOPATH="$HOME/gocode"
 export PATH=$PATH:$GOPATH/bin:$HOME/.cargo/bin
+
+export DOT_DIR="$HOME/Dropbox/dotfiles"
