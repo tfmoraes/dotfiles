@@ -9,3 +9,6 @@
 "nvim/init.vim" = "~/.config/nvim/init.vim"
 "nvim/ginit.vim" = "~/.config/nvim/ginit.vim"
 "nvim/coc-settings.json" = "~/.config/nvim/coc-settings.json"
+
+# Fish
+"fish" = "~/.config/fish"
