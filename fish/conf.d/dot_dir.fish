@@ -1,1 +1,1 @@
-set -x DOT_DIR="$HOME/Dropbox/dotfiles"
+set -x DOT_DIR "$HOME/Dropbox/dotfiles"

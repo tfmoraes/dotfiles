@@ -17,7 +17,7 @@
 # Fish
 "fish/conf.d/abbreviations.fish" = "~/.config/fish/conf.d/abbreviations.fish"
 "fish/conf.d/aliases.fish" = "~/.config/fish/conf.d/aliases.fish"
-"fish/conf.d/dot_dir.fish" = "~/.config/fish/conf_d/dot_dir.fish"
+"fish/conf.d/dot_dir.fish" = "~/.config/fish/conf.d/dot_dir.fish"
 "fish/conf.d/paths.fish" = "~/.config/fish/conf.d/paths.fish"
 "fish/conf.d/pyenv.fish" = "~/.config/fish/conf.d/pyenv.fish"
 "fish/conf.d/virtualfish.fish" = "~/.config/fish/conf.d/virtualfish.fish"
@@ -33,3 +33,6 @@
 
 # Nix
 "nixpkgs" = "~/.config/nixpkgs"
+
+# Bin
+"bin/render_blender_parallel.sh" = "~/bin/render_blender_parallel.sh"
