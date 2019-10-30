@@ -1,0 +1,19 @@
+$include /etc/inputrc
+
+# Use Unicode & do NOT use the "8bit hack" to input/output non-ASCII characters
+# See http://code.google.com/p/iterm2/wiki/Keybindings
+set input-meta on
+set output-meta on
+set convert-meta off
+
+set colored-stats On
+set completion-ignore-case On
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+set visible-stats On
+set menu-complete-display-prefix on
+
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+"\e[A": history-search-backward
+"\e[B": history-search-forward

@@ -1,4 +1,8 @@
 [general]
+
+# Inputrc
+"bash/inputrc" = "~/.inputrc"
+
 # ZSH
 "zsh/antigen.zsh" = "~/antigen.zsh"
 "zsh/zshrc" = "~/.zshrc"
@@ -12,3 +16,6 @@
 
 # Fish
 "fish" = "~/.config/fish"
+
+# Nix
+"nixpkgs" = "~/.config/nixpkgs"
