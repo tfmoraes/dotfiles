@@ -15,7 +15,21 @@
 "nvim/coc-settings.json" = "~/.config/nvim/coc-settings.json"
 
 # Fish
-"fish" = "~/.config/fish"
+"fish/conf.d/abbreviations.fish" = "~/.config/fish/conf.d/abbreviations.fish"
+"fish/conf.d/aliases.fish" = "~/.config/fish/conf.d/aliases.fish"
+"fish/conf.d/dot_dir.fish" = "~/.config/fish/conf_d/dot_dir.fish"
+"fish/conf.d/paths.fish" = "~/.config/fish/conf.d/paths.fish"
+"fish/conf.d/pyenv.fish" = "~/.config/fish/conf.d/pyenv.fish"
+"fish/conf.d/virtualfish.fish" = "~/.config/fish/conf.d/virtualfish.fish"
+"fish/config.fish" = "~/.config/fish/config.fish"
+"fish/fishfile" = "~/.config/fish/fishfile"
+"fish/functions/fisher.fish" = "~/.config/fish/functions/fisher.fish"
+"fish/functions/fvim.fish" = "~/.config/fish/functions/fvim.fish"
+"fish/functions/killf.fish" = "~/.config/fish/functions/killf.fish"
+"fish/functions/pathadd.fish" = "~/.config/fish/functions/pathadd.fish"
+"fish/functions/pathrm.fish" = "~/.config/fish/functions/pathrm.fish"
+"fish/functions/print_cpu_code_name.fish" = "~/.config/fish/functions/print_cpu_code_name.fish"
+"fish/functions/upload.fish" = "~/.config/fish/functions/upload.fish"
 
 # Nix
 "nixpkgs" = "~/.config/nixpkgs"
