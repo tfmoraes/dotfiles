@@ -14,7 +14,7 @@ PROJ_FOLDER_REL=${PROJ_FOLDER#$PARENT_FOLDER}
 NUMBER_NODES=$(grep -v "^#" ~/.parallel/sshloginfile | wc -l)
 FRAMES_FOLDER=${PROJ_FOLDER_REL::-1}-frames
 
-BLENDER_EXECUTABLE='~/bin/blender-2.80'
+BLENDER_EXECUTABLE='~/bin/blender-2.81'
 
 echo $PROJ_FOLDER
 echo $BLENDER_FILENAME
