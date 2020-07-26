@@ -65,6 +65,7 @@ case Linux
   ###############################
   # sytemd BS 🙄
   abbr -ag sc systemctl
+  alias running_services='systemctl list-units  --type=service  --state=running'
 
   ###############################
   # make copy / paste a little bit easier for pengiuns 🐧

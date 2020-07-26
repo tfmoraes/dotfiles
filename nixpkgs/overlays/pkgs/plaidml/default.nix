@@ -54,7 +54,7 @@ buildPythonPackage rec {
     ${python.pythonForBuild.interpreter} -m pip install --no-build-isolation --no-index --prefix=$out  --ignore-installed --no-dependencies --no-cache --build tmpbuild *.whl
   '';
 
-  shellHook = ''
+  profile = ''
     export PLAIDML_NATIVE_PATH="$out/lib/libplaidml.so"
     export RUNFILES_DIR="$out/share/plaidml"
   '';

@@ -1,11 +1,13 @@
-{ lib, buildPythonPackage, fetchurl }:
+{ lib, buildPythonPackage, fetchFromGitHub }:
 
 buildPythonPackage rec {
-  pname ="PyPubSub";
+  pname ="pypubsub";
   version = "4.0.3";
-  src = fetchurl {
-    url = "https://github.com/schollii/pypubsub/archive/v${version}.tar.gz";
-    sha256 = "18l97965bfw832z74lcslpg155vchcnq3xlghnmin0mh3jm3vy0d";
+  src = fetchFromGitHub {
+    owner = "schollii";
+    repo = "pypubsub";
+    rev = "v4.0.3";
+    sha256 = "02j74w28wzmdvxkk8i561ywjgizjifq3hgcl080yj0rvkd3wivlb";
   };
   doCheck = false;
 }

@@ -2,63 +2,102 @@
 
 {
 # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+programs.home-manager.enable = true;
 
 # Home Manager needs a bit of information about you and the
 # paths it should manage.
-  home.username = "thiago";
-  home.homeDirectory = "/home/thiago";
+home.username = "thiago";
+home.homeDirectory = "/home/thiago";
 
-  home.packages = [
-    pkgs.htop
-      pkgs.fortune
-      pkgs.meshlab
-      pkgs.paraview
-      pkgs.gnome3.gnome-tweaks
-      pkgs.gnome3.gnome-boxes
-      pkgs.keepassxc
-      pkgs.ctags
-      # pkgs.neovim
-      pkgs.neovim-qt
-      pkgs.starship
-      pkgs.python-language-server
-      pkgs.gopls
-      pkgs.rust-analyzer
-      pkgs.ninja
-      pkgs.rnix-lsp
-      pkgs.thunderbird-bin
-      (
-       pkgs.python3.withPackages (ps: with ps;[
-         vtk
-         numpy
-         scipy
-         scikitimage
-         scikitlearn
-         pandas
-         nibabel
-         psutil
-         imageio
-         TheanoWithCuda
-         matplotlib
-         Keras
-         keras-applications
-         keras-preprocessing
-         wxPython_4_0
-         ipython
-         cython
-         gdcm
-         pypubsub
-         plaidml
-       ]))
-      ];
+home.packages = with pkgs; [
+  htop
+  fortune
+  meshlab
+  paraview
+
+  # gnome3
+  gnome3.gnome-tweaks
+  gnome3.gnome-boxes
+
+  # neovim
+  neovim
+  neovim-qt
+  rust-analyzer
+  python-language-server
+  gopls
+  rnix-lsp
+  vimlsp
+  sumneko
+
+  keepassxc
+  ctags
+  starship
+  ninja
+  thunderbird-bin
+  gitg
+  fdupes
+  binutils
+  # appimage-run
+  patchelf
+  vlc
+  ffmpeg-full
+  chromium
+  imagemagick
+  pandoc
+  haskellPackages.pandoc-citeproc
+  texlive.combined.scheme-full
+  zettlr
+  zotero
+  wineWowPackages.full
+  wineWowPackages.fonts
+  vulkan-tools
+  (
+    pkgs.python3.withPackages (ps: with ps;[
+      beautifulsoup4
+      click
+      cython
+      gdcm
+      imageio
+      ipython
+      Keras
+      keras-applications
+      keras-preprocessing
+      matplotlib
+      networkx
+      nibabel
+      numba
+      numpy
+      opencv4
+      pandas
+      plaidml
+      psutil
+      pydot
+      pypubsub
+      requests
+      scikitimage
+      scikitlearn
+      scipy
+      sympy
+      TheanoWithCuda
+      vtk
+      wxPython_4_1
+    ]))
+  ];
 
   services = {
+
+    dropbox = {
+      enable = true;
+    };
+
     gnome-keyring = {
       enable = true;
     };
+
   };
 
   programs = {
+
     starship = {
       enable = true;
       enableFishIntegration = true;
@@ -73,21 +112,14 @@
       enableFishIntegration = true;
     };
 
-    neovim = {
+    direnv = {
       enable = true;
-      withPython = true;
-      withPython3 = true;
-      extraPython3Packages = (ps: with ps; [
-        pynvim
-        black
-        isort
-        pylint
-      ]);
-
-      extraPythonPackages = (ps: with ps; [
-        pynvim
-      ]);
+      enableFishIntegration = true;
     };
+
+    # neovim = {
+      # enable = true;
+    # };
   };
 
   home.file = {
@@ -96,11 +128,12 @@
     '';
   };
 
-  # home.sessionVariables = {
-    # PLAIDML_NATIVE_PATH = "${pkgs.plaidml}/lib/libplaidml.so";
-    # RUNFILES_DIR = "${pkgs.plaidml}/share/plaidml";
-    # LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.ocl-icd}/lib";
-  # };
+  home.sessionVariables = {
+    # PLAIDML_NATIVE_PATH = "${pkgs.python3Packages.plaidml}/lib/libplaidml.so";
+    # RUNFILES_DIR = "${pkgs.python3Packages.plaidml}/share/plaidml";
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.ocl-icd}/lib";
+    EDITOR = "nvim";
+  };
 
   home.stateVersion = "20.09";
 }

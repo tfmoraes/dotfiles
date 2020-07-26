@@ -21,6 +21,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'reedes/vim-colors-pencil'
 Plug 'trusktr/seti.vim'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug '29decibel/codeschool-vim-theme'
 Plug 'ajmwagar/vim-deus'
 
@@ -61,7 +62,7 @@ let g:NERDSpaceDelims=1
 Plug 'Shougo/unite.vim'
 Plug 'tsukkee/unite-tag'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Fuzzy file, buffer, mru, tag, etc finder.
@@ -177,61 +178,67 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " YCM
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 " Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Plug 'neoclide/coc.nvim', {'do': 'yarnpkg install'}
+" " Use tab for trigger completion with characters ahead and navigate.
+" " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" inoremap <silent><expr> <TAB>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+  " let col = col('.') - 1
+  " return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" " Use <c-space> for trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" " Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" " Use `[c` and `]c` for navigate diagnostics
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" " Remap keys for gotos
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" " Remap for rename current word
+" nmap <leader>rn <Plug>(coc-rename)
 
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" " Use K for show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+  " if &filetype == 'vim'
+    " execute 'h '.expand('<cword>')
+  " else
+    " call CocAction('doHover')
+  " endif
+" endfunction
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" " Remap for rename current word
+" nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
+" " Remap for format selected region
+" xmap <leader>cf  <Plug>(coc-format-selected)
+" nmap <leader>cf  <Plug>(coc-format-selected)
 
-set updatetime=300
+" set updatetime=300
+
+Plug 'neovim/nvim-lsp'
+Plug 'haorenW1025/completion-nvim'
+Plug 'haorenW1025/diagnostic-nvim'
+Plug 'liuchengxu/vista.vim'
+let g:vista_default_executive = 'nvim_lsp'
 
 "Plug 'davidhalter/jedi-vim'
 
@@ -285,7 +292,7 @@ Plug 'honza/vim-snippets'
 
 " Better python-indent
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'ambv/black'
+Plug 'ambv/black' , { 'tag': '19.10b0' }
 
 " Isort
 Plug 'fisadev/vim-isort'
@@ -294,15 +301,17 @@ Plug 'fisadev/vim-isort'
 " Plug 'tmhedberg/SimpylFold'
 
 " Latex support
-" Plug 'lervag/vimtex'
-" let g:vimtex_fold_enabled=0
-" let g:vimtex_quickfix_latexlog = {'general' : 0}
+Plug 'lervag/vimtex'
+let g:vimtex_fold_enabled=0
+let g:vimtex_quickfix_latexlog = {'general' : 0}
 nnoremap <silent> <space>b :exe 'CocCommand latex.Build'<CR>
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_math=1
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -330,6 +339,7 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " Typescript
 Plug 'leafgarland/typescript-vim'
+Plug 'LnL7/vim-nix'
 
 
 " Hacker news!
@@ -377,6 +387,7 @@ Plug 'ludovicchabant/vim-gutentags'
       \ '*/node_modules/*',
       \ '*/migrate/*.rb'
       \ ]
+
   " let g:gutentags_generate_on_missing = 0
   " let g:gutentags_generate_on_write = 0
   " let g:gutentags_generate_on_new = 0
@@ -440,7 +451,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 "let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 "autocmd VimEnter * colorscheme base16-solarized
-colorscheme gruvbox
+colorscheme dracula
 
 set number
 set hidden
@@ -453,9 +464,11 @@ set listchars=tab:▸\ ,eol:¬
 set wildmenu
 set wildmode=longest,list
 "Sempre mostra o menu, melhora o autocompletion
-set completeopt=menuone,longest
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
 
-" show a visual line under the cursor's current line 
+" show a visual line under the cursor's current line
 set cursorline
 
 " show the matching part of the pair for [] {} and ()
@@ -576,7 +589,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" " YCM 
+" " YCM
 " " let g:airline#extensions#ycm#enabled = 1
 
 let g:airline#extensions#tabline#left_sep = ' '
@@ -678,7 +691,66 @@ nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+
+
+" floating fzf window with borders
+function! CreateCenteredFloatingWindow()
+    let width = min([&columns - 4, max([80, &columns - 20])])
+    let height = min([&lines - 4, max([20, &lines - 10])])
+    let top = ((&lines - height) / 2) - 1
+    let left = (&columns - width) / 2
+    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+
+    let top = "╭" . repeat("─", width - 2) . "╮"
+    let mid = "│" . repeat(" ", width - 2) . "│"
+    let bot = "╰" . repeat("─", width - 2) . "╯"
+    let lines = [top] + repeat([mid], height - 2) + [bot]
+    let s:buf = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+    call nvim_open_win(s:buf, v:true, opts)
+    set winhl=Normal:Floating
+    let opts.row += 1
+    let opts.height -= 2
+    let opts.col += 2
+    let opts.width -= 4
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    au BufWipeout <buffer> exe 'bw '.s:buf
+endfunction
+
+" Files + devicons + floating fzf
+function! Fzf_dev()
+  let l:fzf_files_options = '--preview "bat --theme="OneHalfDark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
+  function! s:files()
+    let l:files = split(system($FZF_DEFAULT_COMMAND), '\n')
+    return s:prepend_icon(l:files)
+  endfunction
+
+  function! s:prepend_icon(candidates)
+    let l:result = []
+    for l:candidate in a:candidates
+      let l:filename = fnamemodify(l:candidate, ':p:t')
+      let l:icon = WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
+      call add(l:result, printf('%s %s', l:icon, l:candidate))
+    endfor
+
+    return l:result
+  endfunction
+
+  function! s:edit_file(item)
+    let l:pos = stridx(a:item, ' ')
+    let l:file_path = a:item[pos+1:-1]
+    execute 'silent e' l:file_path
+  endfunction
+
+  call fzf#run({
+        \ 'source': <sid>files(),
+        \ 'sink':   function('s:edit_file'),
+        \ 'options': '-m --reverse ' . l:fzf_files_options,
+        \ 'down':    '40%',
+        \ 'window': 'call CreateCenteredFloatingWindow()'})
+
+endfunction
 
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
@@ -739,3 +811,71 @@ runtime colors.vim
 " tunmap ê
 " cunmap ê
 " iunmap ê
+
+:lua << EOF
+  local nvim_lsp = require('nvim_lsp')
+
+  local on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    require'diagnostic'.on_attach()
+    require'completion'.on_attach()
+
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
+  end
+
+  local servers = {'gopls', 'rust_analyzer', 'tsserver', 'jsonls', 'clangd'}
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+      on_attach = on_attach,
+    }
+  end
+
+  nvim_lsp['pyls_ms'].setup {
+      on_attach = on_attach,
+      cmd = {"python-language-server", },
+  }
+
+  nvim_lsp['sumneko_lua'].setup {
+      on_attach = on_attach,
+      cmd = {"sumneko", },
+  }
+
+  nvim_lsp['rnix'].setup {
+      on_attach = on_attach,
+      cmd = {"rnix-lsp", },
+  }
+
+  nvim_lsp['vimls'].setup {
+      on_attach = on_attach,
+      cmd = {"vim-language-server", "--stdio"},
+  }
+
+EOF
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" let g:completion_enable_snippet = 'UltiSnips'
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END

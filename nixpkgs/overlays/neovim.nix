@@ -6,20 +6,20 @@ self: super: {
     src = super.pkgs.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
-      rev = "721f69c4af8bc81ba04088e7b56f8cdba653b418";
-      sha256 = "1zcbv0x48yvr7llfyvb5qdpgf3rb6ccnxakah5bkz8nz42sikwlk";
+      rev = "44cbf288ec4407c6fddf79b6b39041d5bbee940b";
+      sha256 = "0m19jm648f2gm0zx2faymbvm9wcqisznfk91s69rh04bajw0mybp";
     };
   });
 
-  # neovim = super.neovim.override {
-    # extraPython3Packages = (ps: with ps; [
-      # pynvim
-      # black
-      # isort
-      # pylint
-    # ]);
-    # extraPythonPackages = (ps: with ps; [
-      # pynvim
-    # ]);
-  # };
+  neovim = super.neovim.override {
+    extraPython3Packages = (ps: with ps; [
+      pynvim
+      black
+      isort
+      pylint
+    ]);
+    extraPythonPackages = (ps: with ps; [
+      pynvim
+    ]);
+  };
 }
