@@ -1,0 +1,8 @@
+require('basic')
+require('plugins')
+require('lsp_conf')
+require('lsp_completion')
+require('telescope_config')
+require('barbar_conf')
+require('treesiter_conf')
+require('maps_conf')
