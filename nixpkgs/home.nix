@@ -1,100 +1,127 @@
 { config, pkgs, ... }:
 
 {
-# Let Home Manager install and manage itself.
-programs.home-manager.enable = true;
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
-# Home Manager needs a bit of information about you and the
-# paths it should manage.
-home.username = "thiago";
-home.homeDirectory = "/home/thiago";
+  # Home Manager needs a bit of information about you and the
+  # paths it should manage.
+  home.username = "thiago";
+  home.homeDirectory = "/home/thiago";
 
-home.packages = with pkgs; [
-  htop
-  fortune
-  meshlab
-  paraview
+  home.packages = with pkgs; [
+    htop
+    fortune
+    # meshlab
+    # paraview
+    any-nix-shell
+    ncdu
+    nix-index
+    niv
 
-  # gnome3
-  gnome3.gnome-tweaks
-  gnome3.gnome-boxes
+    # gnome3
+    gnome3.gnome-boxes
+    gnome3.gnome-tweaks
 
-  # neovim
-  neovim
-  neovim-qt
-  rust-analyzer
-  python-language-server
-  gopls
-  rnix-lsp
-  vimlsp
-  sumneko
+    # neovim and language server
+    neovim
+    neovim-qt
+    clang-analyzer
+    cmake-language-server
+    ctags
+    gopls
+    ninja
+    python-language-server
+    rust-analyzer
+    sumneko
+    vimlsp
 
-  keepassxc
-  ctags
-  starship
-  ninja
-  thunderbird-bin
-  gitg
-  fdupes
-  binutils
-  # appimage-run
-  patchelf
-  vlc
-  ffmpeg-full
-  chromium
-  imagemagick
-  pandoc
-  haskellPackages.pandoc-citeproc
-  texlive.combined.scheme-full
-  zettlr
-  zotero
-  wineWowPackages.full
-  wineWowPackages.fonts
-  vulkan-tools
-  (
-    pkgs.python3.withPackages (ps: with ps;[
-      beautifulsoup4
-      click
-      cython
-      gdcm
-      imageio
-      ipython
-      Keras
-      keras-applications
-      keras-preprocessing
-      matplotlib
-      networkx
-      nibabel
-      numba
-      numpy
-      opencv4
-      pandas
-      plaidml
-      psutil
-      pydot
-      pypubsub
-      requests
-      scikitimage
-      scikitlearn
-      scipy
-      sympy
-      TheanoWithCuda
-      vtk
-      wxPython_4_1
-    ]))
+    chromium
+    gimp
+    inkscape
+    keepassxc
+    libreoffice-fresh
+    thunderbird-bin
+    vlc
+    zettlr
+    zotero
+
+    appimage-run
+    binutils
+    buildah
+    fdupes
+    #ffmpeg-full
+    gitg
+    haskellPackages.pandoc-citeproc
+    imagemagick
+    pandoc
+    patchelf
+    podman
+    starship
+    texlive.combined.scheme-full
+    toolbox
+    vulkan-tools
+    wineWowPackages.fonts
+    wineWowPackages.full
+    (pkgs.python3.withPackages (ps:
+      with ps; [
+        beautifulsoup4
+        click
+        cython
+        gdcm
+        imageio
+        ipython
+        Keras
+        keras-applications
+        keras-preprocessing
+        matplotlib
+        networkx
+        nibabel
+        numba
+        numpy
+        opencv4
+        pandas
+        plaidml
+        psutil
+        pydot
+        pypubsub
+        requests
+        scikitimage
+        scikitlearn
+        scipy
+        seaborn
+        sympy
+        TheanoWithCuda
+        vtk
+        wxPython_4_0
+      ]))
   ];
 
   services = {
 
-    dropbox = {
-      enable = true;
-    };
+    nextcloud-client = { enable = true; };
 
-    gnome-keyring = {
-      enable = true;
-    };
+    # dropbox = {
+    # enable = true;
+    #path = "${config.home.homeDirectory}/Dropbox/";
+    # };
+
+    gnome-keyring = { enable = true; };
 
   };
+
+  # nixpkgs.overlays = [
+  # (self: super: {
+  # dropbox-cli = pkgs.writeScriptBin "dummy-dropbox-cli" "" // {
+  # outPath = "@dropbox-cli@";
+  # };
+  # })
+  # ];
+
+  # nmt.script = ''
+  # serviceFile=home-files/.config/systemd/user/dropbox.service
+  # assertFileExists $serviceFile
+  # '';
 
   programs = {
 
@@ -105,6 +132,10 @@ home.packages = with pkgs; [
 
     fish = {
       enable = true;
+      promptInit = ''
+        any-nix-shell fish --info-right | source
+      '';
+      functions = { fish_greeting = ""; };
     };
 
     fzf = {
@@ -115,17 +146,78 @@ home.packages = with pkgs; [
     direnv = {
       enable = true;
       enableFishIntegration = true;
+      enableNixDirenvIntegration = true;
+      # stdlib = ''
+      # mkdir -p $HOME/.cache/direnv/layouts
+      # pwd_hash=$(echo -n $PWD | shasum | cut -d ' ' -f 1)
+      # direnv_layout_dir=$HOME/.cache/direnv/layouts/$pwd_hash
+      # '';
     };
+
+    command-not-found = { enable = true; };
+
+    git = {
+      enable = true;
+      lfs.enable = true;
+      userName = "Thiago Franco de Moraes";
+      userEmail = "totonixsame@gmail.com";
+      aliases = {
+        fo = "fetch origin";
+        fu = "fetch upstream";
+        lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
+        lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+      };
+      signing = {
+        signByDefault = true;
+        key = "1B96996EE6559B7A";
+      };
+    };
+
+    jq = { enable = true; };
 
     # neovim = {
       # enable = true;
+      # withNodeJs = true;
+      # withPython = true;
+      # withPython3 = true;
+      # withRuby = true;
+
+      # extraPythonPackages = (ps: with ps; [
+        # pynvim
+      # ]);
+
+      # extraPython3Packages = (ps: with ps; [
+        # pynvim
+        # black
+        # isort
+        # pylint
+      # ]);
+
+      # extraPackages = [
+        # pkgs.cscope
+        # pkgs.nixpkgs-fmt
+        # pkgs.rnix-lsp
+      # ];
     # };
   };
 
-  home.file = {
-    ".config/fish/functions/fish_greeting.fish".text = ''
-      function fish_greeting;end
-    '';
+  home.file = rec {
+    # "bin/command-not-found-handle".text = ''
+    # #!/usr/bin/env bash
+    # source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+    # command_not_found_handle $@
+    # '';
+
+    # "bin/command-not-found-handle".executable = true;
+
+    # ".config/fish/functions/fish_greeting.fish".text = ''
+    # '';
+
+    # ".config/fish/functions/nix_index.fish".text = ''
+    # function __fish_command_not_found_handler --on-event fish_command_not_found
+    # $HOME/bin/command-not-found-handle $argv
+    # end
+    # '';
   };
 
   home.sessionVariables = {

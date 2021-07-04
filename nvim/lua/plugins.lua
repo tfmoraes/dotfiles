@@ -1,16 +1,16 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.api.nvim_command('packadd packer.nvim')
+  vim.fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
+  vim.api.nvim_command("packadd packer.nvim")
 end
 
-vim.api.nvim_command('packadd packer.nvim')
+vim.api.nvim_command("packadd packer.nvim")
 
 require("packer").startup(
   function()
     -- Packer can manage itself as an optional plugin
-    use {"wbthomason/packer.nvim", opt = true}
+    use {"wbthomason/packer.nvim"}
 
     use {
       "famiu/nvim-reload",
@@ -39,10 +39,34 @@ require("packer").startup(
       end
     }
 
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config=function()
-      local neogit = require('neogit')
-      neogit.setup {}
-    end}
+    use {
+      "TimUntersberger/neogit",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        local neogit = require("neogit")
+        neogit.setup {}
+      end
+    }
+
+    use {
+      "lewis6991/gitsigns.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim"
+      },
+      config = function()
+        require("gitsigns").setup()
+      end
+    }
+
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function()
+        vim.g.indent_blankline_char = "▏"
+        vim.g.indent_blankline_show_first_indent_level = false
+        vim.g.indent_blankline_show_trailing_blankline_indent = false
+        vim.g.indent_blankline_use_treesitter = true
+      end
+    }
 
     --use {"svermeulen/vimpeccable"}
 
@@ -66,9 +90,13 @@ require("packer").startup(
       end
     }
 
-    use {"nvim-lua/popup.nvim"}
-    use {"nvim-lua/plenary.nvim"}
-    use {"nvim-telescope/telescope.nvim"}
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        {"nvim-lua/popup.nvim"},
+        {"nvim-lua/plenary.nvim"}
+      }
+    }
     use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
     -- To delete surrounding chars easily
@@ -95,7 +123,7 @@ require("packer").startup(
     use {"neovim/nvim-lspconfig"}
     use {"hrsh7th/nvim-compe"}
     use {"liuchengxu/vista.vim"}
-    use {"nvim-treesitter/nvim-treesitter"}
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use {"kabouzeid/nvim-lspinstall"}
     use {
       "folke/lsp-trouble.nvim",
@@ -159,35 +187,7 @@ require("packer").startup(
     }
 
     use {
-      "mhartington/formatter.nvim",
-      config = function()
-        require("formatter").setup(
-          {
-            logging = false,
-            filetype = {
-              lua = {
-                -- luafmt
-                function()
-                  return {
-                    exe = "luafmt",
-                    args = {"--indent-count", 2, "--stdin"},
-                    stdin = true
-                  }
-                end
-              },
-              nix = {
-                --nixpkgs-fmt
-                function()
-                  return {
-                    exe = "nixpkgs-fmt",
-                    stdin = true
-                  }
-                end
-              }
-            }
-          }
-        )
-      end
+      "mhartington/formatter.nvim"
     }
   end
 )
