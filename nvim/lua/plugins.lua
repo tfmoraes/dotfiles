@@ -39,12 +39,18 @@ require("packer").startup(
       end
     }
 
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim', config=function()
+      local neogit = require('neogit')
+      neogit.setup {}
+    end}
+
     --use {"svermeulen/vimpeccable"}
 
     use {"sheerun/vim-polyglot"}
 
     use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use {"folke/tokyonight.nvim"}
+    use {"Mofiqul/dracula.nvim"}
     -- use {"marko-cerovac/material.nvim", requires = {"tjdevries/colorbuddy.nvim"}}
     -- use {"eddyekofo94/gruvbox-flat.nvim"}
 
@@ -165,6 +171,15 @@ require("packer").startup(
                   return {
                     exe = "luafmt",
                     args = {"--indent-count", 2, "--stdin"},
+                    stdin = true
+                  }
+                end
+              },
+              nix = {
+                --nixpkgs-fmt
+                function()
+                  return {
+                    exe = "nixpkgs-fmt",
                     stdin = true
                   }
                 end

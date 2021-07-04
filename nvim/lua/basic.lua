@@ -5,10 +5,10 @@ local w = vim.wo
 local indent = 2
 
 local api = vim.api
-local home = os.getenv("HOME")
+local cache_path = vim.fn.stdpath('cache')
 
 function create_if_not_exists(folder)
-  if not vim.fn.isdirectory(folder) then
+  if vim.fn.isdirectory(folder) == 0 then
     vim.fn.mkdir(folder)
   end
 end
@@ -52,13 +52,17 @@ w.wrap = false -- Disable line wrap
 o.shortmess = vim.o.shortmess .. "s"
 o.shortmess = vim.o.shortmess .. "c"
 
-create_if_not_exists(home .. "/.cache/nvim/undo")
-create_if_not_exists(home .. "/.cache/nvim/backup")
-create_if_not_exists(home .. "/.cache/nvim/swap")
+local undo_path = cache_path .. "/undo"
+local backup_path = cache_path .. "/backup"
+local swap_path = cache_path .. "/swap"
 
-o.undodir = home .. "/.cache/nvim/undo"
-o.backupdir = home .. "/.cache/nvim/backup"
-o.directory = home .. "/.cache/nvim/swap"
+create_if_not_exists(undo_path)
+create_if_not_exists(backup_path)
+create_if_not_exists(swap_path)
+
+o.undodir = undo_path
+o.backupdir = backup_path
+o.directory = swap_path
 
 vim.cmd("cab W w")
 vim.cmd("cab Wq wq")
