@@ -1,0 +1,48 @@
+[language-server.pyright-langserver]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright-langserver.config]
+lint = true
+inlayHint.enable = true
+
+[language-server.pyright-langserver.config.languageFeatures]
+codeAction = true
+
+[language-server.ruff-lsp]
+command  = "ruff-lsp"
+
+[language-server.typst-lsp.config]
+exportPdf = "onSave"
+
+[language-server.efm-eslint-linter]
+command = "efm-langserver"
+
+[language-server.efm-eslint-linter.config.languages]
+latex = [
+  { lintCommand = "cspell ${INPUT}", lintIgnoreExitCode = true, lintStdin = true }
+]
+
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt", args = [] }
+
+[[language]]
+name = "python"
+formatter = { command = "sh", args = ["-c", "ruff format - | ruff check --select I --fix - "] }
+language-servers = ["pyright-langserver", "ruff-lsp"]
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "typst"
+formatter = { command = "typstfmt" }
+
+
+[[language]]
+name = "latex"
+formatter = { command = 'latexindent', args = ["-m", "-l"] }
+language-servers = ["texlab", "ltex-ls",  "efm-eslint-linter"]
+indent = { tab-width = 4, unit = "\t" }
