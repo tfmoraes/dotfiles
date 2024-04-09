@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+cd /home/thiago/Sources/nixcfg
+
+echo "Updating nixpkgs"
+nix flake update --update-input nixpkgs
+
+echo "Updating home-manager"
+nix flake update --update-input home-manager

@@ -1,0 +1,10 @@
+alias firefox="flatpak run org.mozilla.firefox"
+alias gimp="flatpak run org.gimp.GIMP"
+alias vlc="flatpak run org.videolan.VLC"
+alias inkscape="flatpak run org.inkscape.Inkscape"
+alias chrome="flatpak run com.google.Chrome"
+alias meshlab="flatpak run net.meshlab.MeshLab"
+alias paraview="flatpak run org.paraview.ParaView"
+alias gitg="flatpak run org.gnome.gitg"
+
+alias code="code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WaylandWindowDecorations"

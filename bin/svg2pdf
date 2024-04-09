@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+org.inkscape.Inkscape -D -o ${1%.*}.pdf --export-margin=5 $1
