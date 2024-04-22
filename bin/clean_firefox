@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-for F in $(find . -type f -name '*.sqlite' -print)
-do
-    echo $F
-    sqlite3 $F "VACUUM; analyze"
-done
-echo -e "done!"

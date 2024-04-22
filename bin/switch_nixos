@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -euxo pipefail
-cd /home/thiago/Sources/nixcfg
-
-sudo nixos-rebuild switch --flake .#

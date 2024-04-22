@@ -28,3 +28,28 @@ vim.api.nvim_set_keymap('c', '<a-j>', '<c-\\><c-n><c-w>j', opts)
 vim.api.nvim_set_keymap('c', '<a-k>', '<c-\\><c-n><c-w>k', opts)
 vim.api.nvim_set_keymap('c', '<a-h>', '<c-\\><c-n><c-w>h', opts)
 vim.api.nvim_set_keymap('c', '<a-l>', '<c-\\><c-n><c-w>l', opts)
+
+vim.api.nvim_set_keymap('v', '<',   '<gv', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('v', '>',   '>gv', { noremap=true, silent=true })
+
+vim.api.nvim_set_keymap('n', '<C-Up>',  ':m-2<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('n', '<C-Down>', ':m+<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('i', '<C-Up>',  '<ESC>:m-2<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap('i', '<C-Down>', '<ESC>:m+<CR>', { noremap=true, silent=true })
+
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', opts)
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', opts)
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y', opts)
+vim.api.nvim_set_keymap('v', '<leader>p', '"+p', opts)
+
+-- navigate when in wrapped lines
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("v", "j", "gj")
+vim.keymap.set("v", "k", "gk")
+vim.keymap.set("n", "<Down>", "gj")
+vim.keymap.set("n", "<Up>", "gk")
+vim.keymap.set("v", "<Down>", "gj")
+vim.keymap.set("v", "<Up>", "gk")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
+vim.keymap.set("i", "<Up>", "<C-o>gk")

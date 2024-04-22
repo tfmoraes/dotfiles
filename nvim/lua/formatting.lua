@@ -1,117 +1,40 @@
-local vim = vim
-local formatter = require("formatter")
-local prettierConfig = function()
-  return {
-    exe = "prettier",
-    args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
-    stdin = true
-  }
-end
+require("conform").setup({
+	formatters = {
+		ruff_isort = {
+			command = "ruff",
+			args = {
+				"check",
+				"--fix",
+				"--select",
+				"I",
+				"--stdin-filename",
+				"$FILENAME",
+				"-",
+			},
+			stdin = true,
+		},
+	},
+})
 
-local function black()
-  return {
-    exe = "black",
-    stdin = false
-  }
-end
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		-- Conform will run multiple formatters sequentially
+		python = { "ruff_isort", "ruff_format" },
+		-- Use a sub-list to run only the first available formatter
+		javascript = { { "prettierd", "prettier" } },
+		markdown = { {"prettier",} },
+	},
+})
 
-local function isort()
-  return {
-    exe = "isort",
-    args = {"-", "--quiet"},
-    stdin = true
-  }
-end
-
-local formatterConfig = {
-  lua = {
-    function()
-      return {
-        exe = "luafmt",
-        args = {"--indent-count", 2, "--stdin"},
-        stdin = true
-      }
-    end
-  },
-  nix = {
-    function()
-      return {
-        exe = "nixpkgs-fmt",
-        stdin = true
-      }
-    end
-  },
-  python = {
-    isort,
-    black
-  },
-  r = {
-    function()
-      return {
-        exe = "R",
-        args = {
-          "--slave",
-          "--no-restore",
-          "--no-save",
-          "-e",
-          '\'con <- file("stdin"); styler::style_text(readLines(con)); close(con)\'',
-          "2>/dev/null"
-        },
-        stdin = true
-      }
-    end
-  },
-  rust = {
-    -- Rustfmt
-    function()
-      return {
-        exe = "rustfmt",
-        args = {"--emit=stdout"},
-        stdin = true
-      }
-    end
-  },
-  swift = {
-    -- Swiftlint
-    function()
-      return {
-        exe = "swift-format",
-        args = {vim.api.nvim_buf_get_name(0)},
-        stdin = true
-      }
-    end
-  },
-  vue = {
-    function()
-      return {
-        exe = "prettier",
-        args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote", "--parser", "vue"},
-        stdin = true
-      }
-    end
-  }
-}
-local commonFT = {
-  "css",
-  "scss",
-  "html",
-  "java",
-  "javascript",
-  "typescript",
-  "typescriptreact",
-  "markdown",
-  "markdown.mdx",
-  "json"
-}
-for _, ft in ipairs(commonFT) do
-  formatterConfig[ft] = {
-    prettierConfig
-  }
-end
--- Setup functions
-formatter.setup(
-  {
-    logging = false,
-    filetype = formatterConfig
-  }
-)
+vim.api.nvim_create_user_command("Format", function(args)
+	local range = nil
+	if args.count ~= -1 then
+		local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+		range = {
+			start = { args.line1, 0 },
+			["end"] = { args.line2, end_line:len() },
+		}
+	end
+	require("conform").format({ async = true, lsp_fallback = true, range = range })
+end, { range = true })
