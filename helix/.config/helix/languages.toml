@@ -46,3 +46,7 @@ name = "latex"
 formatter = { command = 'latexindent', args = ["-m", "-l"] }
 language-servers = ["texlab", "ltex-ls",  "efm-eslint-linter"]
 indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "cmake"
+formatter = {command = 'cmake-format', args = ['-']}

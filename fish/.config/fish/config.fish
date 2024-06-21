@@ -1,5 +1,7 @@
 set fish_greeting "" # disable default fish greeting
 
+# test -e /usr/share/fish/config.fish ; and source /usr/share/fish/config.fish; or true
+
 #if test -d $HOME/.nix-profile/etc/profile.d/
 #    bass source ~/.nix-profile/etc/profile.d/nix{,-daemon}.sh
 #end
