@@ -9,3 +9,10 @@ if require("lazyvim.util").has("bufferline.nvim") then
     end, { desc = "Buffer " .. i, silent = true })
   end
 end
+
+vim.keymap.set("ca", "W", "w")
+vim.keymap.set("ca", "Wq", "wq")
+vim.keymap.set("ca", "wQ", "wq")
+vim.keymap.set("ca", "WQ", "wq")
+vim.keymap.set("ca", "Q", "q")
+vim.keymap.set("ca", "q1", "q!")

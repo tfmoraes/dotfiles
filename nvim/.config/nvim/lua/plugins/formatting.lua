@@ -40,7 +40,7 @@ return {
         javascript = { { "prettierd", "prettier" } },
         markdown = { { "prettier" } },
         toml = { "taplo" },
-        typst = { "typstfmt" },
+        typst = { "typstyle" },
         css = { "pretter" },
         scss = { "prettier" },
         json = { "prettier" },

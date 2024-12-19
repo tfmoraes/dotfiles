@@ -8,6 +8,23 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
+        tinymist = {
+          --- todo: these configuration from lspconfig maybe broken
+          single_file_support = true,
+          root_dir = function()
+            return vim.fn.getcwd()
+          end,
+          --- See [Tinymist Server Configuration](https://github.com/Myriad-Dreamin/tinymist/blob/main/Configuration.md) for references.
+          settings = {
+            outputPath = "$root/target/$dir/$name",
+            exportPdf = "onSave",
+            formatterMode = "typstyle",
+          },
+        },
+        qmlls = {
+          cmd = { "pyside6-qmlls" },
+        },
+        cssls = {},
       },
     },
   },

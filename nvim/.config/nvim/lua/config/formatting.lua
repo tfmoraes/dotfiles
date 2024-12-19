@@ -14,6 +14,14 @@ require("conform").setup({
       stdin = true,
     },
   },
+  bibclean = {
+    command = "bibclean",
+    args = {
+      "-align-equals",
+      "-delete-empty-values",
+    },
+    stdin = true,
+  },
 })
 
 require("conform").setup({
@@ -24,6 +32,12 @@ require("conform").setup({
     -- Use a sub-list to run only the first available formatter
     javascript = { { "prettierd", "prettier" } },
     markdown = { { "prettier" } },
+    rust = { "rustfmt" },
+    sh = { "shfmt" },
+    typst = { "typstyle" },
+    c = { "clang_format" },
+    cpp = { "clang_format" },
+    bib = { "bibclean" },
   },
 })
 
